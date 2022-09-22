@@ -24,25 +24,29 @@ class FizzBuzzService : IFizzBuzzService
     }
     public string DoFizzBuzzSeries(int fromInput,int toInput)
     {
-        List<int> sequence = Enumerable.Range(fromInput,toInput-fromInput).ToList();
-        string returnedString = string.Empty;
+        List<int> sequence = Enumerable.Range(fromInput,(toInput-fromInput)+1).ToList();
+        List<string> returnedString = new List<string>();
         sequence.ForEach(x => {
 
-            if (x % 3 == 0)
+            if (x % 3 == 0 && x % 5 == 0)
             {
-                returnedString = returnedString + "Fizz";
+                returnedString.Add("FizzBuzz");
             }
-            if (x % 5 == 0)
+            else if (x % 3 == 0)
             {
-                returnedString = returnedString + "Buzz";
+                returnedString.Add("Fizz");
             }
-            if (x % 5 != 0 && x % 3 != 0)
+            else if (x % 5 == 0)
             {
-                returnedString = returnedString + x;
+                returnedString.Add("Buzz");
+            }
+            else
+            {
+                returnedString.Add(x.ToString());
             }
         });
         //Console.WriteLine(returnedString);
-        return returnedString;
+        return String.Join(",",returnedString);
         //throw new System.NotImplementedException();
     }
 }
