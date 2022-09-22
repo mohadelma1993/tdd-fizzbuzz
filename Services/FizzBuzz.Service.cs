@@ -4,16 +4,18 @@ namespace FizzBuzz.Services;
 
 class FizzBuzzService : IFizzBuzzService
 {
+    public string Fizz = "Fizz";
+    public string Buzz = "Buzz";
     public string DoFizzBuzz(int input)
     {
         string returnedString = string.Empty;
         if (input % 3 == 0)
         {
-            returnedString = returnedString + "Fizz";
+            returnedString = returnedString + Fizz;
         }
         if (input % 5 == 0)
         {
-            returnedString = returnedString + "Buzz";
+            returnedString = returnedString + Buzz;
         }
         if(input % 5 != 0 && input %3 !=0){
             returnedString = returnedString + input;
@@ -30,15 +32,15 @@ class FizzBuzzService : IFizzBuzzService
 
             if (x % 3 == 0 && x % 5 == 0)
             {
-                returnedString.Add("FizzBuzz");
+                returnedString.Add(Fizz+Buzz);
             }
             else if (x % 3 == 0)
             {
-                returnedString.Add("Fizz");
+                returnedString.Add(Fizz);
             }
             else if (x % 5 == 0)
             {
-                returnedString.Add("Buzz");
+                returnedString.Add(Buzz);
             }
             else
             {

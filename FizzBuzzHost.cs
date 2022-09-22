@@ -24,7 +24,7 @@ class FizzBuzzHost : IFizzBuzzHost
             {
                 var result = this.fizzBuzzService.DoFizzBuzz(number);
                 Console.WriteLine(result);
-                
+
             }
             else
             {
@@ -47,7 +47,7 @@ class FizzBuzzHost : IFizzBuzzHost
 
             if (fromParsed && toParsed)
             {
-                var result = this.fizzBuzzService.DoFizzBuzzSeries(from,to);
+                var result = this.fizzBuzzService.DoFizzBuzzSeries(from, to);
                 Console.WriteLine(result);
             }
             else
