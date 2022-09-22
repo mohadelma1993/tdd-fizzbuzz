@@ -24,7 +24,7 @@ class FizzBuzzService : IFizzBuzzService
         return returnedString;
         //throw new System.NotImplementedException();
     }
-    public string DoFizzBuzzSeries(int fromInput,int toInput)
+    public string DoFizzBuzzSeries(int fromInput,int toInput,Boolean cap)
     {
         List<int> sequence = Enumerable.Range(fromInput,(toInput-fromInput)+1).ToList();
         List<string> returnedString = new List<string>();
@@ -40,7 +40,7 @@ class FizzBuzzService : IFizzBuzzService
             }
             else if (x % 5 == 0)
             {
-                returnedString.Add(Buzz.ToUpper()); //task 3 (upper Buzz Only)
+                returnedString.Add((cap == true) ? Buzz.ToUpper() : Buzz); //task 3,4 (upper Buzz Only)
             }
             else
             {

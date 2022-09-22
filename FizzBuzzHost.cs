@@ -34,7 +34,7 @@ class FizzBuzzHost : IFizzBuzzHost
             Environment.Exit(0);
             //task 1 (single integer)*/
 
-            //task 2 (fizzbuzz series)
+            /*//task 2 (fizzbuzz series)
             int from, to;
             string? inputCli = string.Empty;
             Console.Write("from: ");
@@ -56,7 +56,42 @@ class FizzBuzzHost : IFizzBuzzHost
                 return;
             }
             Environment.Exit(0);
-            //task 2 (fizzbuzz series)
+            //task 2 (fizzbuzz series)*/
+
+            //task 4 (from:to:cap)
+            int from, to;
+            bool cap = false;
+            string? inputCli;
+            string[] splitted;
+            Console.Write("please write in the following format from:to:cap\n");
+            inputCli = Console.ReadLine();
+            if (!String.IsNullOrEmpty(inputCli) && !String.IsNullOrWhiteSpace(inputCli)) {
+                splitted = inputCli.Split(":".ToCharArray());
+                if (splitted.Length == 3)
+                {
+                    bool fromParsed = Int32.TryParse(splitted[0], out from);
+                    bool toParsed = Int32.TryParse(splitted[1], out to);
+                    bool capParsed = Boolean.TryParse(splitted[2], out cap);
+                    if (fromParsed && toParsed && capParsed)
+                    {
+                        var result = this.fizzBuzzService.DoFizzBuzzSeries(from, to, cap);
+                        Console.WriteLine(result);
+                    }
+                    else
+                    {
+                        Console.WriteLine("You need to provide the input number and the input number only");
+                    }
+                }
+                else {
+                    Console.WriteLine("You need to provide a correct format from:to:cap");
+                }
+            }
+            else
+            {
+                Console.WriteLine("You need to provide an input");
+            }
+            Environment.Exit(0);
+            //task 4 (from:to:cap)
         }
         catch (Exception e) //catch exception for invalid input, such as a letter
         {
