@@ -40,7 +40,7 @@ class FizzBuzzService : IFizzBuzzService
             }
             else if (x % 5 == 0)
             {
-                returnedString.Add(Buzz);
+                returnedString.Add(Buzz.ToUpper()); //task 3 (upper Buzz Only)
             }
             else
             {
